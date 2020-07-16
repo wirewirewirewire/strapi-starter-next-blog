@@ -18,7 +18,7 @@ const Card = ({ article }) => {
               height="100"
             />
           </div>
-          <div className="uk-card-body">
+          <div className={styles.body>
             <p id="title" className="uk-text-large">
               {article.title}
             </p>
