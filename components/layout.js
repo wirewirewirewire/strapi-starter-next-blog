@@ -1,5 +1,6 @@
-import Head from 'next/head'
-import Nav from './nav'
+import Head from "next/head";
+import Nav from "./nav";
+import styles from "./layout.module.scss";
 
 const Layout = ({ children, categories }) => (
   <>
@@ -9,17 +10,12 @@ const Layout = ({ children, categories }) => (
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Staatliches"
       />
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css"
-      />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js" />
-      <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js" />
     </Head>
-    <Nav categories={categories} />
-    {children}
+    <div className={styles.layout}>
+      <Nav categories={categories} />
+      {children}
+    </div>
   </>
-)
+);
 
-export default Layout
+export default Layout;

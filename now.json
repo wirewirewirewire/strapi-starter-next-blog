@@ -1,16 +1,11 @@
 {
-  "builds": [
-    {
-      "src": "./package.json",
-      "use": "@now/next"
-    }
-  ],
+  "builds": [{ "src": "./package.json", "use": "@now/next" }],
   "build": {
     "env": {
-      "API_URL": "https://melanie-gloeckler.herokuapp.com/"
+      "API_URL": "@api-url"
     }
   },
   "env": {
-    "API_URL": "https://melanie-gloeckler.herokuapp.com/"
+    "API_URL": "@api-url"
   }
 }

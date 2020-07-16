@@ -1,25 +1,23 @@
-import ReactMarkdown from 'react-markdown'
-import Moment from 'react-moment'
-import { getArticles, getArticle, getCategories } from '../../lib/api'
-import Layout from '../../components/layout'
+import ReactMarkdown from "react-markdown";
+import Moment from "react-moment";
+import { getArticles, getArticle, getCategories } from "../../lib/api";
+import Layout from "../../components/layout";
+import styles from "./article.module.scss";
 
 const Article = ({ article, categories }) => {
-  const imageUrl = article.image.url.startsWith('/')
+  const imageUrl = article.image.url.startsWith("/")
     ? process.env.API_URL + article.image.url
-    : article.image.url
+    : article.image.url;
   return (
     <Layout categories={categories}>
-      <div
+      <img
         id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-        data-src={imageUrl}
-        data-srcset={imageUrl}
-        data-uk-img
-      >
-        <h1>{article.title}</h1>
-      </div>
-
-      <div className="uk-section">
+        className={styles.hero}
+        src={imageUrl}
+        srcSet={imageUrl}
+      />
+      <h1>{article.title}</h1>
+      <div className={styles.content}>
         <div className="uk-container uk-container-small">
           <ReactMarkdown source={article.content} />
           <p>
@@ -28,11 +26,11 @@ const Article = ({ article, categories }) => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export async function getStaticPaths() {
-  const articles = (await getArticles()) || []
+  const articles = (await getArticles()) || [];
   return {
     paths: articles.map((article) => ({
       params: {
@@ -40,16 +38,16 @@ export async function getStaticPaths() {
       },
     })),
     fallback: false,
-  }
+  };
 }
 
 export async function getStaticProps({ params }) {
-  const article = (await getArticle(params.id)) || []
-  const categories = (await getCategories()) || []
+  const article = (await getArticle(params.id)) || [];
+  const categories = (await getCategories()) || [];
   return {
     props: { article, categories },
     unstable_revalidate: 1,
-  }
+  };
 }
 
-export default Article
+export default Article;

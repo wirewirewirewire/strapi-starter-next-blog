@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+}
+
+.logo {
+  font-weight: 600;
+}
+
+.navbarLinks {
+  display: flex;
+  > li {
+    margin-left: 1rem;
+  }
+}

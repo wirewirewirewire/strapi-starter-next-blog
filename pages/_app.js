@@ -1,5 +1,5 @@
-import '../assets/css/style.css'
+import "../style.scss";
 
-const App = ({ Component, pageProps }) => <Component {...pageProps} />
+const App = ({ Component, pageProps }) => <Component {...pageProps} />;
 
-export default App
+export default App;
