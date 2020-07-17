@@ -7,15 +7,35 @@ const Card = ({ article }) => {
     ? process.env.API_URL + article.image.url
     : article.image.url;
 
-  const thumbnail = imageUrl.replace(
-    "image/upload",
-    "image/upload/c_scale,w_600"
-  );
+  const filetype = imageUrl.split(".").pop();
+
+  const isVideo = filetype === "mov";
+  const thumbnail = isVideo
+    ? imageUrl
+        .replace("video/upload", "video/upload/ac_none,c_scale,w_520/du_3")
+        .replace(".mov", ".mp4")
+    : imageUrl.replace("image/upload", "image/upload/c_scale,w_620");
   return (
     <Link as={`/article/${article.id}`} href="/article/[id]">
       <a className={styles.card}>
         <div className="uk-card uk-card-muted">
-          <div className={styles.imageWrapper}>
+          <div
+            className={`${styles.imageWrapper} ${
+              isVideo ? styles.imageWrapperVideo : ""
+            }`}
+          >
+            {filetype === "mov" && (
+              <video
+                width="320"
+                height="240"
+                autoPlay
+                loop
+                muted
+                className={styles.video}
+              >
+                <source src={thumbnail} type="video/mp4" />
+              </video>
+            )}
             <img
               src={thumbnail}
               alt={article.image.alternativeText}

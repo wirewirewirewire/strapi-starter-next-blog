@@ -12,6 +12,12 @@ $md: (
 $lg: (
   min: 1200px,
 );
+
+$sm-max: (
+  min: map-get($xs, min),
+  max: map-get($md, min) - 1,
+);
+
 $sm-only: (
   min: map-get($sm, min),
   max: map-get($md, min) - 1,

@@ -1,3 +1,5 @@
+@import "./../global";
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -6,6 +8,17 @@
 
 .logo {
   font-weight: 600;
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: $interactive-01;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+  }
 }
 
 .navbarLinks {

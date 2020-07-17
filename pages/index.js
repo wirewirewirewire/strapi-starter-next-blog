@@ -10,7 +10,7 @@ const Home = ({ articles, categories }) => {
       <div className="uk-section">
         <h1 className={styles.title}>
           Welcome to Melanies Webseite lorem ipsum dolor et jomen bin sulamen et
-          jamen
+          jamen.
         </h1>
         <Articles articles={articles} />
       </div>
