@@ -8,13 +8,19 @@ const Article = ({ article, categories }) => {
   const imageUrl = article.image.url.startsWith("/")
     ? process.env.API_URL + article.image.url
     : article.image.url;
+
+  const thumbnail = imageUrl.replace(
+    "image/upload",
+    "image/upload/t_article_2x"
+  );
+
   return (
     <Layout categories={categories}>
       <img
         id="banner"
         className={styles.hero}
-        src={imageUrl}
-        srcSet={imageUrl}
+        src={thumbnail}
+        srcSet={thumbnail}
       />
       <h1>{article.title}</h1>
       <div className={styles.content}>

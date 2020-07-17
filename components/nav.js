@@ -7,7 +7,9 @@ const Nav = ({ categories }) => {
     <div>
       <nav className={styles.navbar} data-uk-navbar>
         <div>
-          <div className={styles.logo}>Melanie Glöckler</div>
+          <a className={styles.logo} href="/">
+            Melanie Glöckler
+          </a>
         </div>
 
         <div>

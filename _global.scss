@@ -1,3 +1,5 @@
+$dark-bg: #1f1e23;
+$interactive-01: #ff125d;
 $xs: (
   max: 767px,
 );
@@ -31,6 +33,12 @@ $md-only: (
     $query: append($query, "(max-width: #{map-get($map, max)})");
   }
   @media screen and #{$query} {
+    @content;
+  }
+}
+
+@mixin darkmode() {
+  @media (prefers-color-scheme: dark) {
     @content;
   }
 }
