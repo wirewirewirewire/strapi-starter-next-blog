@@ -57,9 +57,9 @@ const Article = ({ article, categories, mdxSource }) => {
         src={thumbnail}
         srcSet={thumbnail}
       />*/}
-      <h1>{article.title}</h1>
-      {article.subtitle && <h2>{article.subtitle}</h2>}
       <div className={styles.content}>
+        <h1>{article.title}</h1>
+        {article.subtitle && <h2>{article.subtitle}</h2>}
         <div className="wrapper">{content}</div>
         {/*Hello
         <ReactMarkdown source={article.content} />*/}
