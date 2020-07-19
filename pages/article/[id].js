@@ -8,7 +8,6 @@ import hydrate from "next-mdx-remote/hydrate";
 import styles from "./article.module.scss";
 
 function Video({ id, height }) {
-  console.log("height", height);
   return (
     <div className={styles.videoWrapper}>
       <div
@@ -58,14 +57,21 @@ const Article = ({ article, categories, mdxSource }) => {
         srcSet={thumbnail}
       />*/}
       <div className={styles.content}>
-        <h1>{article.title}</h1>
-        {article.subtitle && <h2>{article.subtitle}</h2>}
+        <h1 className={styles.title}>{article.title}</h1>
+        {article.subtitle && (
+          <h2 className={styles.subTitle}>{article.subtitle}</h2>
+        )}
         <div className="wrapper">{content}</div>
         {/*Hello
         <ReactMarkdown source={article.content} />*/}
         <p>
           <Moment format="MMM Do YYYY">{article.published_at}</Moment>
         </p>
+        <div className={styles.articleFooter}>
+          <a href="/" className={styles.returnLink}>
+            return to projects
+          </a>
+        </div>
       </div>
     </Layout>
   );
