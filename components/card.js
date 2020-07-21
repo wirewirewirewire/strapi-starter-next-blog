@@ -8,8 +8,9 @@ const Card = ({ article }) => {
     : article.image.url;
 
   const filetype = imageUrl.split(".").pop();
+  console.log("filetype", filetype);
 
-  const isVideo = filetype === "mov";
+  const isVideo = filetype === "mov" || filetype === "mp4";
   const thumbnail = isVideo
     ? imageUrl
         .replace("video/upload", "video/upload/ac_none,c_scale,w_520/du_3")
@@ -24,7 +25,7 @@ const Card = ({ article }) => {
               isVideo ? styles.imageWrapperVideo : ""
             }`}
           >
-            {filetype === "mov" && (
+            {isVideo && (
               <video
                 width="320"
                 height="240"
