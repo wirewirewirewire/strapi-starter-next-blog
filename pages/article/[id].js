@@ -6,6 +6,7 @@ import Layout from "../../components/layout";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import styles from "./article.module.scss";
+import Media from "../../components/media";
 
 function Video({ id, height }) {
   return (
@@ -27,7 +28,7 @@ function Video({ id, height }) {
 
 const components = {
   Video,
-  img: (props) => <img {...props} />,
+  img: Media,
 };
 
 const Article = ({ article, categories, mdxSource }) => {
