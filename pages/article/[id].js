@@ -31,17 +31,6 @@ const components = {
 };
 
 const Article = ({ article, categories, mdxSource }) => {
-  const image = article.detailimage ? article.detailimage : article.image;
-  const imageUrl = image.url.startsWith("/")
-    ? process.env.API_URL + image.url
-    : image.url;
-
-  const thumbnail = imageUrl.replace(
-    "image/upload",
-
-    "image/upload/ac_none,c_fill,h_1000,w_1800/du_3"
-  );
-
   //"image/upload/t_article_2x"
 
   //res.cloudinary.com/dokwe6qe2/image/upload/ac_none,c_fill,h_192,w_520/du_3/sample.mp4
