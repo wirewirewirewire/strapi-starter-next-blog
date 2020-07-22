@@ -37,6 +37,7 @@ const Article = ({ article, categories, mdxSource }) => {
   //res.cloudinary.com/dokwe6qe2/image/upload/ac_none,c_fill,h_192,w_520/du_3/sample.mp4
 
   const content = hydrate(mdxSource, components);
+  console.log("Article", article);
 
   return (
     <Layout categories={categories}>
@@ -47,6 +48,14 @@ const Article = ({ article, categories, mdxSource }) => {
         srcSet={thumbnail}
       />*/}
       <div className={styles.content}>
+        <div className={styles.meta}>
+          {article.meta.map((e) => (
+            <div className={styles.metaEntry}>
+              <div className={styles.metaTitle}>{e.title}</div>
+              <div className={styles.metaContent}>{e.content}</div>
+            </div>
+          ))}
+        </div>
         <h1 className={styles.title}>{article.title}</h1>
         {article.subtitle && (
           <h2 className={styles.subTitle}>{article.subtitle}</h2>
@@ -57,6 +66,7 @@ const Article = ({ article, categories, mdxSource }) => {
         <p>
           <Moment format="MMM Do YYYY">{article.published_at}</Moment>
         </p>
+
         <div className={styles.articleFooter}>
           <a href="/" className={styles.returnLink}>
             return to projects

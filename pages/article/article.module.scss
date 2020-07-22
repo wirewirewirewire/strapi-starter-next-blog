@@ -81,3 +81,20 @@
     right: 0;
   }
 }
+
+.meta {
+  display: flex;
+  font-size: 0.9rem;
+  .metaEntry {
+    margin-right: 3rem;
+  }
+  .metaTitle {
+    font-weight: bold;
+    &:after {
+      content: ":";
+    }
+  }
+  .metaContent {
+    margin-top: -0.5rem;
+  }
+}
