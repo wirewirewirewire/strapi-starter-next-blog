@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./card.module.scss";
 
 const Card = ({ article }) => {
+  if (!article.image) return <div>No image set</div>;
   const imageUrl = article.image.url.startsWith("/")
     ? process.env.API_URL + article.image.url
     : article.image.url;
