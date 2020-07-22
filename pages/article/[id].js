@@ -7,6 +7,7 @@ import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import styles from "./article.module.scss";
 import Media from "../../components/media";
+import Flex from "../../components/flex";
 
 function Video({ id, height }) {
   return (
@@ -28,6 +29,7 @@ function Video({ id, height }) {
 
 const components = {
   Video,
+  Flex,
   img: Media,
 };
 
@@ -66,6 +68,16 @@ const Article = ({ article, categories, mdxSource }) => {
         <p>
           <Moment format="MMM Do YYYY">{article.published_at}</Moment>
         </p>
+
+        <div className={styles.partner}>
+          {article.meta.map((e) => (
+            <div className={styles.partnerEntry}>
+              {e.image && (
+                <img src={e.image.url} alt={e.image.alternativeText} />
+              )}
+            </div>
+          ))}
+        </div>
 
         <div className={styles.articleFooter}>
           <a href="/" className={styles.returnLink}>

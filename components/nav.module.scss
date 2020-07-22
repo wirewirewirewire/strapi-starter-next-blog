@@ -23,6 +23,8 @@
 
 .navbarLinks {
   display: flex;
+  justify-content: center;
+  align-items: center;
   > li {
     margin-left: 1.5rem;
     a {
@@ -31,4 +33,8 @@
       }
     }
   }
+}
+
+.linkedin {
+  margin-bottom: -3px;
 }
