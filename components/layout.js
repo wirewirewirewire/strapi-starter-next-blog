@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import Nav from "./nav";
 import styles from "./layout.module.scss";
