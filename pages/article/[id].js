@@ -53,7 +53,7 @@ const Article = ({ article, categories, mdxSource }) => {
         <div className={styles.meta}>
           {article.meta.map((e) => (
             <div className={styles.metaEntry}>
-              <div className={styles.metaTitle}>{e.title}</div>
+              <div className={styles.metaTitle}>{e.title}:</div>
               <div className={styles.metaContent}>{e.content}</div>
             </div>
           ))}
