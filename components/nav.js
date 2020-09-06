@@ -51,7 +51,7 @@ const Nav = ({ categories }) => {
           </ul>
         </div>
       </nav>
-    </div>
+    </div >
   );
 };
 
