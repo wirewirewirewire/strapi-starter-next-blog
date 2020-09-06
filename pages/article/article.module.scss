@@ -85,11 +85,19 @@
 .meta {
   display: flex;
   font-size: 0.9rem;
+  align-content: stretch;
   .metaEntry {
-    margin-right: 3rem;
+    margin-right: 2rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+    max-width: 40%;
+    &:last-child {
+      margin-right: 0;
+    }
   }
   .metaTitle {
     font-weight: bold;
+    white-space: nowrap;
     &:after {
       content: ":";
     }
