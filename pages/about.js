@@ -8,21 +8,29 @@ const About = ({ categories }) => {
   return (
     <Layout categories={categories}>
       {/*<div className={stylesArticle.content}> */}
-
-      <h1 className={styles.container}>About</h1>
+      <h3 className={styles.container}>Education</h3>
+      2019 - 2021 Royal College of Art - MA Service Design
+      <br />
+      2020 London Business School MBA programme elective, Business Model
+      Experiments: Ideation to Prototyping
+      <br />
+      2012 - 2017 Burg Giebichenstein University of Art and Design - BA
+      Industrial Design | Halle Saale
+      <br />
+      2016 Hasso Plattner Institute - Design Thinking Basic Track | Potsdam
+      <br />
       <p>
-        Melanie <br />
-        <h3 className={styles.container}>Education </h3>
-        2019 - 2021 Royal College of Art - MA Service Design
+        <h3 className={styles.container}>Work - Experience</h3>
+        10/2018 - 09/2019 Burg Giebichenstein University of Art and Design
+        Artistic associate Glass & Ceramic Department | Halle Saale <br />
+        Tasks.... <br />
+        04/2019 - 07/2019 Magdeburg-Stendal University of Applied Sciences
+        Visiting lecturer - Department of Engineering and Industrial Design - ID{" "}
         <br />
-        2012 - 2017 Burg Giebichenstein University of Art and Design - BA
-        Industrial Design | Halle Saale
+        Tasks....
         <br />
-        2016 Hasso Plattner Institute - Design Thinking Basic Track | Potsdam
-        <br />
-        Internships/ Experience
-        <br />
-        Exhibitions <br />
+        09/2016 - 02/2017 BMW Automobile Colour & Trim Internship | FIZ München
+        <h3 className={styles.container}>Exhibitions</h3>
         2015
         <br />
         100 % Paper - Designhaus Halle "bunt geschöpftes"
@@ -65,9 +73,7 @@ const About = ({ categories }) => {
         2020
         <br />
         Plant Fever - Grand Hornu Belgium "marine cotton"
-        <br />
-        Awards
-        <br />
+        <h3 className={styles.container}>Awards</h3>
         2015
         <br />
         Recycling Designpreis
