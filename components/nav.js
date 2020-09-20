@@ -25,6 +25,11 @@ const Nav = ({ categories }) => {
               </Link>
             </li>
             <li>
+              <Link href="/about">
+                <a>Contact</a>
+              </Link>
+            </li>
+            <li>
               <a
                 href="https://www.linkedin.com/in/melanie-gloeckler/"
                 target="_blank"
@@ -51,7 +56,7 @@ const Nav = ({ categories }) => {
           </ul>
         </div>
       </nav>
-    </div >
+    </div>
   );
 };
 
