@@ -6,8 +6,8 @@ import styles from "./contact.module.scss";
 const contact = ({ categories }) => {
   return (
     <Layout categories={categories}>
-      <h3 className={styles.container}>.....</h3>
-      <table className={styles.timelineTable}>
+      <h3 className={styles.head}>.....</h3>
+      <table className={styles.Mail}>
         <tr>
           <td>
             {" "}

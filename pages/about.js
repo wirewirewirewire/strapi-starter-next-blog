@@ -187,7 +187,7 @@ const About = ({ categories }) => {
           <td>
             {" "}
             <a href="https://www.burg-halle.de/design/industriedesign/produktdesign-keramik-und-glasdesign/aktuelles/a/franz-award-2015-international-porcelain-design-competition-in-peking/">
-              Franz Award
+              Franz Award 1st price
             </a>{" "}
           </td>
         </tr>
