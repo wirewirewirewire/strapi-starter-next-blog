@@ -94,19 +94,18 @@ export async function getStaticPaths() {
   return {
     paths: articles.map((article) => ({
       params: {
-        id: article.id,
+        slug: article.slug,
       },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const article = (await getArticle(params.id)) || [];
+  const article = (await getArticle(params.slug)) || [];
   const categories = (await getCategories()) || [];
 
   // mdx text - can be from a local file, database, anywhere
-  const source = "Some **mdx** text, with a component <Test />";
   const mdxSource = await renderToString(article.content, components);
 
   return {

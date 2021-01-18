@@ -18,7 +18,7 @@ const Card = ({ article }) => {
         .replace(".mov", ".mp4")
     : imageUrl.replace("image/upload", "image/upload/c_scale,w_620");
   return (
-    <Link as={`/article/${article.id}`} href="/article/[id]">
+    <Link as={`/article/${article.slug}`} href="/article/[slug]">
       <a className={styles.card}>
         <div className="uk-card uk-card-muted">
           <div
