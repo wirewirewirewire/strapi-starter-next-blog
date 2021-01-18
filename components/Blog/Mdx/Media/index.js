@@ -18,5 +18,12 @@ export default function Media(props) {
     );
   }
 
-  return <img {...props} />;
+  return (
+    <img
+      srcSet={`${props.src}?w=200 480w, ${props.src}?w=200 800w`}
+      sizes="(max-width: 600px) 480px,
+            800px"
+      {...props}
+    />
+  );
 }

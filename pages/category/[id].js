@@ -1,6 +1,6 @@
-import Articles from "../../components/articles";
-import { getCategory, getCategories } from "../../lib/api";
-import Layout from "../../components/layout";
+import Articles from "../../components/blog/Articles";
+import { getCategory, getCategories } from "../../components/Blog/lib/api";
+import Layout from "../../components/Blog/Layout";
 
 const Category = ({ category, categories }) => {
   return (

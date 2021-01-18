@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
-import { getCategories } from "../lib/api";
+import Layout from "../components/Blog/Layout";
+import { getCategories } from "../components/Blog/lib/api";
 import styles from "./contact.module.scss";
 
 const contact = ({ categories }) => {
