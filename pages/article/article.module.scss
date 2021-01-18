@@ -98,11 +98,13 @@
   .metaTitle {
     font-weight: bold;
     white-space: nowrap;
+    margin-bottom: 0.5em;
     &:after {
       content: ":";
     }
   }
   .metaContent {
     margin-top: -0.5rem;
+    line-height: 1.5;
   }
 }

@@ -1,13 +1,19 @@
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
-import { getArticles, getArticle, getCategories } from "../../lib/api";
-import Layout from "../../components/layout";
+import {
+  getArticles,
+  getArticle,
+  getCategories,
+} from "../../components/Blog/lib/api";
+import Layout from "../../components/Blog/Layout";
 
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
+import { MDXProvider } from "@mdx-js/react";
 import styles from "./article.module.scss";
-import Media from "../../components/media";
-import Flex from "../../components/flex";
+import Media from "../../components/Blog/Mdx/Media";
+import Flex from "../../components/Blog/Mdx/Flex";
+import { useRouter } from "next/router";
 
 function Video({ id, height }) {
   return (
@@ -20,7 +26,6 @@ function Video({ id, height }) {
           src={`https://www.youtube.com/embed/${id}?showinfo=0&rel=0&color=white`}
           width="560"
           height="315"
-          frameBorder="0"
         ></iframe>
       </div>
     </div>
@@ -38,8 +43,13 @@ const Article = ({ article, categories, mdxSource }) => {
 
   //res.cloudinary.com/dokwe6qe2/image/upload/ac_none,c_fill,h_192,w_520/du_3/sample.mp4
 
-  const content = hydrate(mdxSource, components);
-  console.log("Article", article);
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
+  const content = hydrate(mdxSource, { components });
 
   return (
     <Layout categories={categories}>
@@ -53,7 +63,7 @@ const Article = ({ article, categories, mdxSource }) => {
         <div className={styles.meta}>
           {article.meta.map((e) => (
             <div className={styles.metaEntry}>
-              <div className={styles.metaTitle}>{e.title}:</div>
+              <div className={styles.metaTitle}>{e.title}</div>
               <div className={styles.metaContent}>{e.content}</div>
             </div>
           ))}
@@ -78,12 +88,11 @@ const Article = ({ article, categories, mdxSource }) => {
             </div>
           ))}
         </div>
-
-        <div className={styles.articleFooter}>
-          <a href="/" className={styles.returnLink}>
-            return to projects
-          </a>
-        </div>
+      </div>
+      <div className={styles.articleFooter}>
+        <a href="/blog" className={styles.returnLink}>
+          return to projects
+        </a>
       </div>
     </Layout>
   );
@@ -104,13 +113,11 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const article = (await getArticle(params.slug)) || [];
   const categories = (await getCategories()) || [];
-
-  // mdx text - can be from a local file, database, anywhere
-  const mdxSource = await renderToString(article.content, components);
+  const mdxSource = await renderToString(article.content, { components });
 
   return {
     props: { article, categories, mdxSource },
-    unstable_revalidate: 1,
+    revalidate: 1,
   };
 }
 

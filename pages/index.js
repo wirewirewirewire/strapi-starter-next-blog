@@ -1,7 +1,7 @@
 import React from "react";
-import Articles from "../components/articles";
-import Layout from "../components/layout";
-import { getArticles, getCategories } from "../lib/api";
+import Articles from "../components/Blog/articles";
+import Layout from "../components/Blog/layout";
+import { getArticles, getCategories } from "../components/Blog/lib/api";
 import styles from "./index.module.scss";
 
 const Home = ({ articles, categories }) => {
@@ -9,7 +9,8 @@ const Home = ({ articles, categories }) => {
     <Layout categories={categories}>
       <div className="uk-section">
         <h1 className={styles.title}>
-          Welcome ...I am still under construction but the projects are ready to see :)
+          Welcome ...I am still under construction but the projects are ready to
+          see :)
         </h1>
         <Articles articles={articles} />
       </div>
@@ -22,7 +23,7 @@ export async function getStaticProps() {
   const categories = (await getCategories()) || [];
   return {
     props: { articles, categories },
-    unstable_revalidate: 1,
+    revalidate: 1,
   };
 }
 

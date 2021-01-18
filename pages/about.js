@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
-import { getCategories } from "../lib/api";
+import Layout from "../components/Blog/layout";
+import { getCategories } from "../components/Blog/lib/api";
 import styles from "./about.module.scss";
 import stylesArticle from "./article/article.module.scss";
 
@@ -65,76 +65,62 @@ const About = ({ categories }) => {
       <table className={styles.timelineTable}>
         <tr>
           <td>2020</td>
-        </tr>
-        <tr>
+
           <td>Plant Fever - Grand Hornu Belgium "marine cotton"</td>
         </tr>
 
         <tr>
           <td>2019</td>
-        </tr>
-        <tr>
+
           <td>Reine Formsache - Porzellanikon "héritage"</td>
         </tr>
 
         <tr>
           <td>2018</td>
-        </tr>
-        <tr>
-          <td>FuoriSalone "marine cotton"</td>
-        </tr>
-        <tr>
-          <td>LODZ Design Festival "marine cotton"</td>
+
+          <td>
+            FuoriSalone "marine cotton"
+            <br />
+            LODZ Design Festival "marine cotton"
+          </td>
         </tr>
 
         <tr>
           <td>2016</td>
-        </tr>
-        <tr>
-          <td>Staged/ room + style Dresden "héritage"</td>
-        </tr>
-        <tr>
-          <td>Ambiente Frankfurt "héritage"</td>
-        </tr>
-        <tr>
-          <td>68. internationale Handwerksmesse München "héritage"</td>
-        </tr>
-        <tr>
+
           <td>
+            Staged/ room + style Dresden "héritage"
+            <br />
+            Ambiente Frankfurt "héritage"
+            <br />
+            68. internationale Handwerksmesse München "héritage"
+            <br />
             Grassi Museum for applied art Leipzig included "trial error &" in
             the permanent collection
+            <br />
+            Bauhaus Dessau "peripher"
+            <br />
+            Bienal de Diseño 2016 La Habana Cuba "trial error &"
+            <br />
           </td>
-        </tr>
-        <tr>
-          <td>Bauhaus Dessau "peripher"</td>
-        </tr>
-        <tr>
-          <td>Bienal de Diseño 2016 La Habana Cuba "trial error &"</td>
         </tr>
 
         <tr>
           <td>2015</td>
-        </tr>
-        <tr>
-          <td>100 % Paper - Designhaus Halle "bunt geschöpftes"</td>
-        </tr>
-        <tr>
-          <td>Hallesche Formen - Galerie Vermittlungsstelle b "héritage"</td>
-        </tr>
-        <tr>
-          <td>Marta Herford "bunt geschöpftes"</td>
-        </tr>
-        <tr>
-          <td>Designers Open "trial error &"</td>
-        </tr>
-        <tr>
-          <td>Marta Herford "bunt geschöpftes"</td>
-        </tr>
-        <tr>
-          <td>Kunststiftung des Landes Sachsen Anhalt "trial error &"</td>
-        </tr>
-        <tr>
-          <td>Bauhaus Dessau "trial error &"</td>
+
+          <td>
+            100 % Paper - Designhaus Halle "bunt geschöpftes"
+            <br />
+            Hallesche Formen - Galerie Vermittlungsstelle b "héritage"
+            <br />
+            Marta Herford "bunt geschöpftes"
+            <br />
+            Designers Open "trial error &"
+            <br />
+            Kunststiftung des Landes Sachsen Anhalt "trial error &"
+            <br />
+            Bauhaus Dessau "trial error &"
+          </td>
         </tr>
       </table>
 
@@ -202,7 +188,7 @@ export async function getStaticProps() {
   const categories = (await getCategories()) || [];
   return {
     props: { categories },
-    unstable_revalidate: 1,
+    revalidate: 1,
   };
 }
 
