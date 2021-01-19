@@ -1,10 +1,11 @@
-@import "./../global";
+@import "global";
 
 .container {
   display: flex;
   margin-bottom: 1rem;
   margin-top: 1rem;
   font-size: 1.5em;
+  font-weight: 500;
   align-content: space-between;
   color: var(--interactive-01);
 }
@@ -19,6 +20,13 @@
 
 .timelineTable {
   line-height: 2.75em;
+  &table,
+  tr,
+  td {
+    @include breakpoint($xs) {
+      display: block;
+    }
+  }
   td {
     padding-top: 0.2em;
     padding-bottom: 0.2em;
@@ -32,19 +40,30 @@
 }
 
 .intro {
-  display: flex;
-  font-size: 1.3em;
-  line-height: 1.75em;
+  margin-bottom: 4em;
+  @include breakpoint($md) {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .introText {
+  font-size: 1.6em;
+  line-height: 1.75em;
   margin-right: 2em;
+  font-weight: 600;
 }
 
 .buttons {
   margin-top: 1.5em;
-  > a {
+  font-size: 1.3rem;
+  @include breakpoint($xs) {
+  }
+  a {
     font-weight: 500;
+    @include breakpoint($xs) {
+      margin-bottom: 0.5em;
+    }
     margin-right: 0.5em;
     padding: 0.3em 0.7em;
     color: var(--text-02);
@@ -52,9 +71,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s;
+    outline: 2px solid transparent;
+    &:last-child {
+      margin-right: 0;
+    }
     &:hover {
       color: var(--text-02);
       background: var(--interactive-02);
+      outline: 1px solid var(--text-01);
     }
   }
   svg {
@@ -65,5 +90,9 @@
   }
 }
 .image {
-  width: 25%;
+  width: 100%;
+  height: auto;
+  @include breakpoint($md) {
+    width: 25%;
+  }
 }
