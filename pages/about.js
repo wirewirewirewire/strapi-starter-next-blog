@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/Blog/layout";
+import Layout from "../components/Blog/Layout";
 import { getCategories } from "../components/Blog/lib/api";
 import styles from "./about.module.scss";
 import stylesArticle from "./article/article.module.scss";
