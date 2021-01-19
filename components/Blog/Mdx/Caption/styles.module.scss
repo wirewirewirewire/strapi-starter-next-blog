@@ -1,0 +1,14 @@
+@import "global.scss";
+
+@mixin caption {
+  font-size: 1.1em;
+  display: block;
+  width: 100%;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.75;
+  margin-bottom: 2em;
+}
+.caption {
+  @include caption;
+}

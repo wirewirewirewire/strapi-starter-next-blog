@@ -1,4 +1,4 @@
-import Articles from "../../components/blog/Articles";
+import Articles from "../../components/Blog/Articles";
 import { getCategory, getCategories } from "../../components/Blog/lib/api";
 import Layout from "../../components/Blog/Layout";
 

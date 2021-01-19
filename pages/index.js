@@ -1,6 +1,6 @@
 import React from "react";
-import Articles from "../components/Blog/articles";
-import Layout from "../components/Blog/layout";
+import Articles from "../components/Blog/Articles";
+import Layout from "../components/Blog/Layout";
 import { getArticles, getCategories } from "../components/Blog/lib/api";
 import styles from "./index.module.scss";
 
