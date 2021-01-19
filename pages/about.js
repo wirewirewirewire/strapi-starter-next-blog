@@ -1,3 +1,5 @@
+import { faAt, faFileUser } from "@fortawesome/pro-light-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Layout from "../components/Blog/Layout";
 import { getCategories } from "../components/Blog/lib/api";
@@ -17,8 +19,14 @@ const About = ({ categories }) => {
             Lorem ipsum dolor sit amet
           </p>
           <div className={styles.buttons}>
-            <a href="#">Get in touch</a>
-            <a href="#">Download my CV</a>
+            <a href="#">
+              <FontAwesomeIcon icon={faAt} size="xs" />
+              Get in touch
+            </a>
+            <a href="#">
+              <FontAwesomeIcon icon={faFileUser} size="xs" />
+              Download my CV
+            </a>
           </div>
         </div>
         <img className={styles.image} src="./MelanieGloeckler.jpg" />

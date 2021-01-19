@@ -13,7 +13,7 @@
     content: "";
     display: block;
     height: 3px;
-    background: $interactive-01;
+    background: var(--interactive-01);
     position: absolute;
     bottom: -3px;
     left: 0;

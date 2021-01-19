@@ -48,7 +48,7 @@
   .title {
     font-size: 5rem;
     line-height: 1em;
-    //color: $interactive-01;
+    //color: var(--interactive-01);
   }
   .subTitle {
     font-weight: 400;
@@ -74,7 +74,7 @@
     content: "";
     display: block;
     height: 5px;
-    background: $interactive-01;
+    background: var(--interactive-01);
     position: absolute;
     bottom: -12px;
     left: 0;

@@ -109,24 +109,29 @@ input {
 }
 
 body {
-  //font-family: "Open Sans", Helvetica, sans-serif;
-
   font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
     "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
     "Arial", sans-serif;
-  @include darkmode {
-    color: #fff;
-    background: $dark-bg;
-  }
+  color: var(--text-01);
+  background: var(--ui-01);
 }
 
 a {
   text-decoration: none;
-  color: #000;
-  @include darkmode {
-    color: #fff;
-  }
+  color: var(--text-01);
   &:hover {
-    color: #ff125d;
+    color: var(--interactive-02);
+  }
+}
+
+:root {
+  --ui-01: #fff;
+  --text-01: #1f1e23;
+  --text-02: #fff;
+  --interactive-01: #ff125d;
+  --interactive-02: #db0b4d;
+  @include darkmode {
+    --ui-01: #1f1e23;
+    --text-01: #fff;
   }
 }

@@ -6,7 +6,7 @@
   margin-top: 1rem;
   font-size: 1.5em;
   align-content: space-between;
-  color: $interactive-01;
+  color: var(--interactive-01);
 }
 
 .info {
@@ -43,14 +43,25 @@
 
 .buttons {
   margin-top: 1.5em;
-  > * {
+  > a {
     font-weight: 500;
     margin-right: 0.5em;
-    padding: 0.5em;
-    background: $interactive-01;
+    padding: 0.3em 0.7em;
+    color: var(--text-02);
+    background: var(--interactive-01);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
-      color: #fff;
+      color: var(--text-02);
+      background: var(--interactive-02);
     }
+  }
+  svg {
+    height: 1.2em;
+    width: auto;
+    margin-left: -0.1em;
+    margin-right: 0.6em;
   }
 }
 .image {
