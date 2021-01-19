@@ -4,6 +4,7 @@
   display: flex;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  font-size: 1.5em;
   align-content: space-between;
   color: $interactive-01;
 }
@@ -17,12 +18,41 @@
 }
 
 .timelineTable {
-  line-height: 1.75em;
+  line-height: 2.75em;
   td {
-    padding: 6px;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
     padding-left: 0px;
     &:first-child {
+      font-weight: 600;
+      width: 13em;
       padding-right: 2em;
     }
   }
+}
+
+.intro {
+  display: flex;
+  font-size: 1.3em;
+  line-height: 1.75em;
+}
+
+.introText {
+  margin-right: 2em;
+}
+
+.buttons {
+  margin-top: 1.5em;
+  > * {
+    font-weight: 500;
+    margin-right: 0.5em;
+    padding: 0.5em;
+    background: $interactive-01;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+.image {
+  width: 25%;
 }

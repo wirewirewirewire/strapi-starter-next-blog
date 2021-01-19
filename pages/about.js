@@ -7,6 +7,22 @@ import stylesArticle from "./article/article.module.scss";
 const About = ({ categories }) => {
   return (
     <Layout categories={categories}>
+      <div className={styles.intro}>
+        <div className={styles.introText}>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+            Lorem ipsum dolor sit amet
+          </p>
+          <div className={styles.buttons}>
+            <a href="#">Get in touch</a>
+            <a href="#">Download my CV</a>
+          </div>
+        </div>
+        <img className={styles.image} src="./MelanieGloeckler.jpg" />
+      </div>
       {/*<div className={stylesArticle.content}> */}
       <h3 className={styles.container}>Education</h3>
       <table className={styles.timelineTable}>
@@ -128,57 +144,47 @@ const About = ({ categories }) => {
       <table className={styles.timelineTable}>
         <tr>
           <td>2020</td>
-        </tr>
-        <tr>
+
           <td>Grand Challenge Logitech x Cern: Special Award </td>
         </tr>
 
         <tr>
           <td>2019</td>
-        </tr>
-        <tr>
+
           <td>Designblok - Ahoj future! Prague </td>
         </tr>
 
         <tr>
           <td>2017</td>
-        </tr>
-        <tr>
+
           <td>TISDC (Taiwan International Student Design Competition) 2017</td>
         </tr>
 
         <tr>
           <td>2016</td>
-        </tr>
-        <tr>
-          <td>Staged Design Award</td>
-        </tr>
-        <tr>
-          <td>Talente 2016 - Handwerkskammer München </td>
-        </tr>
-        <tr>
-          <td>Glas Design Wettbewerb - Glasmanufaktur Harzkristall</td>
+
+          <td>
+            Staged Design Award
+            <br />
+            Talente 2016 - Handwerkskammer München
+            <br />
+            Glas Design Wettbewerb - Glasmanufaktur Harzkristall
+          </td>
         </tr>
 
         <tr>
           <td>2015</td>
-        </tr>
-        <tr>
-          <td>Recycling Designpreis</td>
-        </tr>
-        <tr>
-          <td>Giebichenstein Designpreis</td>
-        </tr>
-        <tr>
+
           <td>
-            {" "}
+            Recycling Designpreis
+            <br />
+            Giebichenstein Designpreis
+            <br />
             <a href="https://www.burg-halle.de/design/industriedesign/produktdesign-keramik-und-glasdesign/aktuelles/a/franz-award-2015-international-porcelain-design-competition-in-peking/">
               Franz Award 1st price
             </a>{" "}
           </td>
         </tr>
-
-        {/*</div>*/}
       </table>
     </Layout>
   );

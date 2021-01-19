@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./media.module.scss";
 import Caption from "../Caption";
+import Lightbox from "./Lightbox";
 
 export default function Media(props) {
   const { src } = props;
@@ -25,15 +26,17 @@ export default function Media(props) {
   }
 
   return (
-    <div>
-      <img
-        srcSet={`${scope}c_scale,w_800/${last} 800w, ${scope}c_scale,w_1600/${last} 1600w`}
-        sizes="(max-width: 600px) 100vw,
+    <div className={styles.mediaWrapper}>
+      <Lightbox {...props}>
+        {/*<img
+          srcSet={`${scope}c_scale,w_800/${last} 800w, ${scope}c_scale,w_1600/${last} 1600w`}
+          sizes="(max-width: 600px) 100vw,
             800px"
-        {...props}
-        src={`${scope}c_scale,w_1600/${last}`}
-      />
-      <Caption>{props.alt}</Caption>
+          {...props}
+          src={`${scope}c_scale,w_1600/${last}`}
+        />*/}
+      </Lightbox>
+      {props.title && <Caption>{props.title}</Caption>}
     </div>
   );
 }
