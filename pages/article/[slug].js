@@ -90,7 +90,7 @@ const Article = ({ article, categories, mdxSource }) => {
         </div>
       </div>
       <div className={styles.articleFooter}>
-        <a href="/blog" className={styles.returnLink}>
+        <a href="/" className={styles.returnLink}>
           return to projects
         </a>
       </div>
