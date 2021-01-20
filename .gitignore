@@ -112,3 +112,4 @@ build
 
 .vercel
 .next
+.package-lock.json
