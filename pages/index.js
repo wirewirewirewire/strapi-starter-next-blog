@@ -9,8 +9,6 @@ const Home = ({ articles, categories }) => {
     <Layout categories={categories}>
       <div className="uk-section">
         <h1 className={styles.title}>
-          Welcome ...I am still under construction but the projects are ready to
-          see :)
         </h1>
         <Articles articles={articles} />
       </div>
