@@ -12,10 +12,7 @@ const About = ({ categories }) => {
       <div className={styles.intro}>
         <div className={styles.introText}>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore eos et accusam et et dolore
-            magna aliquyam erat sed diam voluptua. At vero eos et accusam et eos
-            et accusam et justo duo dolores et ea rebum.
+            ...
           </p>
           <div className={styles.buttons}>
             <a href="#">
@@ -95,16 +92,16 @@ const About = ({ categories }) => {
         <tr>
           <td>2019</td>
 
-          <td>Reine Formsache - Porzellanikon "héritage"</td>
+          <td>Reine Formsache - Porzellanikon Germany "héritage"</td>
         </tr>
 
         <tr>
           <td>2018</td>
 
           <td>
-            FuoriSalone "marine cotton"
+            FuoriSalone Milan "marine cotton"
             <br />
-            LODZ Design Festival "marine cotton"
+            LODZ Design Festival Poland "marine cotton"
           </td>
         </tr>
 
@@ -116,7 +113,7 @@ const About = ({ categories }) => {
             <br />
             Ambiente Frankfurt "héritage"
             <br />
-            68. internationale Handwerksmesse München "héritage"
+            Talente - 68. internationale Handwerksmesse München "héritage"
             <br />
             Grassi Museum for applied art Leipzig included "trial error &" in
             the permanent collection
@@ -153,6 +150,12 @@ const About = ({ categories }) => {
           <td>2020</td>
 
           <td>Grand Challenge Logitech x Cern: Special Award </td>
+        </tr>
+
+        <tr>
+          <td>2019-2021</td>
+
+          <td>DAAD scholarship - Jahresstipendien für Studienaufenthalte im Ausland  </td>
         </tr>
 
         <tr>
