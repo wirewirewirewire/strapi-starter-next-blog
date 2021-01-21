@@ -112,3 +112,5 @@ build
 
 .vercel
 .next
+package-lock.json
+.env.local
