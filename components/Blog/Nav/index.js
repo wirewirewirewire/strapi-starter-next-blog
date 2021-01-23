@@ -25,11 +25,6 @@ const Nav = ({ categories }) => {
               </Link>
             </li>
             <li>
-              <Link href="/imprint">
-                <a>Imprint</a>
-              </Link>
-            </li>
-            <li>
               <a
                 href="https://www.linkedin.com/in/melanie-gloeckler/"
                 target="_blank"
