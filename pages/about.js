@@ -32,7 +32,6 @@ const About = ({ categories }) => {
             got exhibited in Museums and Design Festivals in Germany, Poland,
             Belgium, Italy, China and Cuba.*/}
           </p>
-
           <div className={styles.buttons}>
             <a href="mailto:melanie.gloeckler@gmail.com" target="_blank">
               <FontAwesomeIcon icon={faPaperPlane} size="xs" />
