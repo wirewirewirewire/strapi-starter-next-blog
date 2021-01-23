@@ -17,11 +17,11 @@ const About = ({ categories }) => {
           On a professional level, she got the chance to intern in automobility for BMW and worked in design education before transitioning with a DAAD scholarship to the RCA in London. Her work got exhibited in Museums and Design Festivals in Germany, Poland, Belgium, Italy, China and Cuba.
          </p>
           <div className={styles.buttons}>
-            <a href="melanie.gloeckler@gmail.com">
+            <a href="mailto:melanie.gloeckler@gmail.com" target="_blank">
               <FontAwesomeIcon icon={faPaperPlane} size="xs" />
               Get in touch
             </a>
-            <a href="https://drive.google.com/file/d/1rJVthGoapXep7HmHM_C52fpgBjVC6M98/view">
+            <a href="https://drive.google.com/file/d/1rJVthGoapXep7HmHM_C52fpgBjVC6M98/view" target="_blank">
               <FontAwesomeIcon icon={faFileUser} size="xs" />
               Download my CV
             </a>
