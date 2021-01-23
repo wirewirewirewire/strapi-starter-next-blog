@@ -12,8 +12,12 @@ const About = ({ categories }) => {
       <div className={styles.intro}>
         <div className={styles.introText}>
           <p>
-            ...
-          </p>
+          Melanie studied her BA in Industrial Design at the Burg Giebichenstein in Germany and Design Thinking at the HPI d.school before she joined the RCA Service Design program in 2019.
+
+Throughout her education, she always had a strong interest in materials & technologies. Fascinated how these advancements ever since shaped the human environment and humanity itself, her work sought to explore different intersections, pushed boundaries and tried to rethink current approaches or create multiple futures with and through means of technological use. Her latest project FIAAI takes a different perspective and designs in the realm of policy for technology.
+
+On a professional level, she got the chance to intern in automobility for BMW and worked in design education before transitioning with a DAAD scholarship to the RCA in London. Her work got exhibited in Museums and Design Festivals in Germany, Poland, Belgium, Italy, China and Cuba.
+         </p>
           <div className={styles.buttons}>
             <a href="#">
               <FontAwesomeIcon icon={faPaperPlane} size="xs" />
