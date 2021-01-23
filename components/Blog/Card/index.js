@@ -24,18 +24,21 @@ const Card = ({ article }) => {
     width: 520,
     crop: "pad",
     format: "mp4",
+    protocol: "https:",
   });
 
   const imageUrl = cl.url(name, {
     width: 620,
     crop: "pad",
     format: "jpg",
+    protocol: "https:",
   });
 
   const posterUrl = cl.video_url(name, {
     width: 620,
     crop: "pad",
     format: "jpg",
+    protocol: "https:",
   });
   //}
 

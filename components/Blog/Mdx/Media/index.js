@@ -14,11 +14,13 @@ export default function Media(props) {
   if (isVideo) {
     const url = cl.video_url(name, {
       format: "mp4",
+      protocol: "https:",
     });
 
     const imageUrl = cl.video_url(name, {
       width: 1600,
       format: "jpg",
+      protocol: "https:",
     });
 
     return (

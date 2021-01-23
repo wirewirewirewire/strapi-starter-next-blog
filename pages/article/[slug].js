@@ -1,15 +1,11 @@
-import ReactMarkdown from "react-markdown";
-import Moment from "react-moment";
 import {
   getArticles,
   getArticle,
   getCategories,
 } from "../../components/Blog/lib/api";
 import Layout from "../../components/Blog/Layout";
-
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
-import { MDXProvider } from "@mdx-js/react";
 import styles from "./article.module.scss";
 import Media from "../../components/Blog/Mdx/Media";
 import Flex from "../../components/Blog/Mdx/Flex";
@@ -50,6 +46,7 @@ const PartnerLogo = ({ image }) => {
   const imageUrl = cl.url(name, {
     width: 300,
     crop: "pad",
+    protocol: "https:",
   });
   return <img src={imageUrl} alt={image.alternativeText} />;
 };
