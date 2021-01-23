@@ -1,55 +1,76 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./card.module.scss";
+import urlGenerator from "../lib/cloudinaryHelper";
+import { Cloudinary } from "cloudinary-core";
 
 const Card = ({ article }) => {
   if (!article.image) return <div>No image set</div>;
-  const imageUrl = article.image.url.startsWith("/")
+  const src = article.image.url.startsWith("/")
     ? process.env.API_URL + article.image.url
     : article.image.url;
 
-  const filetype = imageUrl.split(".").pop();
-  console.log("filetype", filetype);
-
-  const isVideo = filetype === "mov" || filetype === "mp4";
-  const thumbnail = isVideo
+  /*const thumbnail = isVideo
     ? imageUrl
         .replace("video/upload", "video/upload/ac_none,c_scale,w_520/du_3")
         .replace(".mov", ".mp4")
-    : imageUrl.replace("image/upload", "image/upload/c_scale,w_620");
+    : imageUrl.replace("image/upload", "image/upload/c_scale,w_620");*/
+
+  const { cloudName, name, isVideo } = urlGenerator(src);
+  var cl = new Cloudinary({ cloud_name: cloudName, secure: false });
+
+  //if (isVideo) {
+  const videoUrl = cl.video_url(name, {
+    width: 520,
+    crop: "pad",
+    format: "mp4",
+  });
+
+  const imageUrl = cl.url(name, {
+    width: 620,
+    crop: "pad",
+    format: "jpg",
+  });
+
+  const posterUrl = cl.video_url(name, {
+    width: 620,
+    crop: "pad",
+    format: "jpg",
+  });
+  //}
+
   return (
     <Link as={`/article/${article.slug}`} href="/article/[slug]">
       <a className={styles.card}>
-        <div className="uk-card uk-card-muted">
-          <div
-            className={`${styles.imageWrapper} ${
-              isVideo ? styles.imageWrapperVideo : ""
-            }`}
-          >
-            {isVideo && (
-              <video
-                width="320"
-                height="240"
-                autoPlay
-                loop
-                muted
-                className={styles.video}
-              >
-                <source src={thumbnail} type="video/mp4" />
-              </video>
-            )}
-            <img
-              src={thumbnail}
-              alt={article.image.alternativeText}
-              className={styles.image}
-              height="100"
-            />
-          </div>
-          <div className={styles.body}>
-            <p id="title" className="uk-text-large">
-              {article.title}
-            </p>
-          </div>
+        <div
+          className={`${styles.imageWrapper} ${
+            isVideo ? styles.imageWrapperVideo : ""
+          }`}
+        >
+          {isVideo && (
+            <video
+              width="320"
+              height="240"
+              autoPlay
+              loop
+              muted
+              poster={posterUrl}
+              className={styles.video}
+            >
+              <source src={videoUrl} type="video/mp4" />
+            </video>
+          )}
+          <img
+            src={imageUrl}
+            alt={article.image.alternativeText}
+            className={styles.image}
+            height="100"
+          />
+        </div>
+        <div className={styles.body}>
+          <p id="title" className="uk-text-large">
+            {article.title}
+          </p>
         </div>
       </a>
     </Link>

@@ -3,28 +3,20 @@ import styles from "./media.module.scss";
 import Caption from "../Caption";
 import Lightbox from "./Lightbox";
 import { Cloudinary } from "cloudinary-core";
-var cl = new Cloudinary({ cloud_name: "deeoqlpnx", secure: false });
+import urlGenerator from "../../lib/cloudinaryHelper";
 
 export default function Media(props) {
   const { src } = props;
 
-  const filetype = src.split(".").pop();
-
-  const isVideo = filetype === "mov" || filetype === "mp4";
-  const thumbnail = isVideo;
-
-  const rest = src.substring(0, src.lastIndexOf("/") + 1);
-  const last = src.substring(src.lastIndexOf("/") + 1, src.length);
-  const nameWithoutFilename = last.substring(0, last.lastIndexOf("."));
-  const scope = rest.substring(0, rest.lastIndexOf("/v") + 1);
-  console.log(filetype, src, rest, last, nameWithoutFilename, scope);
+  const { cloudName, name, isVideo } = urlGenerator(src);
+  var cl = new Cloudinary({ cloud_name: cloudName, secure: false });
 
   if (isVideo) {
-    const url = cl.video_url(nameWithoutFilename, {
+    const url = cl.video_url(name, {
       format: "mp4",
     });
 
-    const imageUrl = cl.video_url(nameWithoutFilename, {
+    const imageUrl = cl.video_url(name, {
       width: 1600,
       format: "jpg",
     });
