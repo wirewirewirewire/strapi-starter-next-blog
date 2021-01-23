@@ -14,6 +14,8 @@ import styles from "./article.module.scss";
 import Media from "../../components/Blog/Mdx/Media";
 import Flex from "../../components/Blog/Mdx/Flex";
 import { useRouter } from "next/router";
+import { Cloudinary } from "cloudinary-core";
+import urlGenerator from "../../components/Blog/lib/cloudinaryHelper";
 
 function Video({ id, height }) {
   return (
@@ -36,6 +38,20 @@ const components = {
   Video,
   Flex,
   img: Media,
+};
+
+const PartnerLogo = ({ image }) => {
+  console.log("image", image);
+  if (!image || !image.url) return null;
+
+  const { cloudName, name } = urlGenerator(image.url);
+  var cl = new Cloudinary({ cloud_name: cloudName, secure: false });
+
+  const imageUrl = cl.url(name, {
+    width: 300,
+    crop: "pad",
+  });
+  return <img src={imageUrl} alt={image.alternativeText} />;
 };
 
 const Article = ({ article, categories, mdxSource }) => {
@@ -73,18 +89,11 @@ const Article = ({ article, categories, mdxSource }) => {
           <h2 className={styles.subTitle}>{article.subtitle}</h2>
         )}
         <div className="wrapper">{content}</div>
-        {/*Hello
-        <ReactMarkdown source={article.content} />*/}
-        <p>
-          <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-        </p>
 
         <div className={styles.partner}>
-          {article.meta.map((e) => (
+          {article.partner.map((e) => (
             <div className={styles.partnerEntry}>
-              {e.image && (
-                <img src={e.image.url} alt={e.image.alternativeText} />
-              )}
+              <PartnerLogo image={e.image} />
             </div>
           ))}
         </div>

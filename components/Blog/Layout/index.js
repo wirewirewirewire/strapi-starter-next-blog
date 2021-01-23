@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Nav from "../Nav";
+import Link from "next/link";
 import styles from "./layout.module.scss";
 
 const Layout = ({ children, categories }) => (
@@ -33,6 +34,15 @@ const Layout = ({ children, categories }) => (
     <div className={styles.layout}>
       <Nav categories={categories} />
       {children}
+
+      <div className={styles.footer}>
+        <div>
+          🎈{" "}
+          <Link href="/imprint">
+            <a>Imprint</a>
+          </Link>
+        </div>
+      </div>
     </div>
   </>
 );
