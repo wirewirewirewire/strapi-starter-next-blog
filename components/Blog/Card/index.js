@@ -10,12 +10,6 @@ const Card = ({ article }) => {
     ? process.env.API_URL + article.image.url
     : article.image.url;
 
-  /*const thumbnail = isVideo
-    ? imageUrl
-        .replace("video/upload", "video/upload/ac_none,c_scale,w_520/du_3")
-        .replace(".mov", ".mp4")
-    : imageUrl.replace("image/upload", "image/upload/c_scale,w_620");*/
-
   const { cloudName, name, isVideo } = urlGenerator(src);
   var cl = new Cloudinary({ cloud_name: cloudName, secure: false });
 
@@ -67,7 +61,6 @@ const Card = ({ article }) => {
             src={imageUrl}
             alt={article.image.alternativeText}
             className={styles.image}
-            height="100"
           />
         </div>
         <div className={styles.body}>
