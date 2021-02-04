@@ -13,31 +13,29 @@ const Card = ({ article }) => {
   const { cloudName, name, isVideo } = urlGenerator(src);
   var cl = new Cloudinary({ cloud_name: cloudName, secure: false });
 
-  //if (isVideo) {
   const videoUrl = cl.video_url(name, {
-    width: 520,
+    width: 620 * 2,
     crop: "pad",
     format: "mp4",
     protocol: "https:",
   });
 
   const imageUrl = cl.url(name, {
-    width: 620,
+    width: 620 * 2,
     crop: "pad",
     format: "jpg",
     protocol: "https:",
   });
 
   const posterUrl = cl.video_url(name, {
-    width: 620,
+    width: 620 * 2,
     crop: "pad",
     format: "jpg",
     protocol: "https:",
   });
-  //}
 
   return (
-    <Link as={`/article/${article.slug}`} href="/article/[slug]">
+    <Link href={`/article/${article.slug}`}>
       <a className={styles.card}>
         <div
           className={`${styles.imageWrapper} ${

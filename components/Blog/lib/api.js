@@ -20,11 +20,11 @@ async function fetchAPI(query, { variables } = {}) {
 
 export async function getArticles() {
   const data = await fetchAPI(`query Articles {
-    articles(sort: "date:desc") {
+    articles(sort: "date:desc", where: {showOnHomepage: true}) {
       id
       title
-      date
       slug
+      updated_at
       category {
         id
         name

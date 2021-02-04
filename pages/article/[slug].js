@@ -1,61 +1,22 @@
+import ReactMarkdown from "react-markdown";
+import Moment from "react-moment";
 import {
   getArticles,
   getArticle,
   getCategories,
 } from "../../components/Blog/lib/api";
 import Layout from "../../components/Blog/Layout";
+
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import styles from "./article.module.scss";
-import Media from "../../components/Blog/Mdx/Media";
-import Flex from "../../components/Blog/Mdx/Flex";
+import components from "../../components/Blog/Mdx";
 import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 import { Cloudinary } from "cloudinary-core";
 import urlGenerator from "../../components/Blog/lib/cloudinaryHelper";
 
-function Video({ id, height }) {
-  return (
-    <div className={styles.videoWrapper}>
-      <div
-        className={styles.video}
-        style={height && { paddingBottom: `${height}%` }}
-      >
-        <iframe
-          src={`https://www.youtube.com/embed/${id}?showinfo=0&rel=0&color=white`}
-          width="560"
-          height="315"
-        ></iframe>
-      </div>
-    </div>
-  );
-}
-
-const components = {
-  Video,
-  Flex,
-  img: Media,
-};
-
-const PartnerLogo = ({ image }) => {
-  console.log("image", image);
-  if (!image || !image.url) return null;
-
-  const { cloudName, name } = urlGenerator(image.url);
-  var cl = new Cloudinary({ cloud_name: cloudName, secure: false });
-
-  const imageUrl = cl.url(name, {
-    width: 300,
-    crop: "pad",
-    protocol: "https:",
-  });
-  return <img src={imageUrl} alt={image.alternativeText} />;
-};
-
 const Article = ({ article, categories, mdxSource }) => {
-  //"image/upload/t_article_2x"
-
-  //res.cloudinary.com/dokwe6qe2/image/upload/ac_none,c_fill,h_192,w_520/du_3/sample.mp4
-
   const router = useRouter();
 
   if (router.isFallback) {
@@ -64,14 +25,51 @@ const Article = ({ article, categories, mdxSource }) => {
 
   const content = hydrate(mdxSource, { components });
 
+  const src = article.image.url.startsWith("/")
+    ? process.env.API_URL + article.image.url
+    : article.image.url;
+
+  const { cloudName, name, isVideo } = urlGenerator(src);
+  var cl = new Cloudinary({ cloud_name: cloudName, secure: false });
+
+  const imageUrl = isVideo
+    ? cl.video_url(name, {
+        width: 620 * 3,
+        crop: "pad",
+        format: "jpg",
+        protocol: "https:",
+      })
+    : cl.url(name, {
+        width: 620 * 3,
+        crop: "pad",
+        format: "jpg",
+        protocol: "https:",
+      });
+
   return (
     <Layout categories={categories}>
-      {/*<img
-        id="banner"
-        className={styles.hero}
-        src={thumbnail}
-        srcSet={thumbnail}
-      />*/}
+      <NextSeo
+        title={article.title}
+        description={article.subtitle}
+        //canonical="https://www.canonical.ie/"
+        openGraph={{
+          //url: "https://www.url.ie/a",
+          title: article.title,
+          description: article.subtitle,
+          images: [
+            {
+              url: imageUrl,
+              alt: article.image.alt,
+            },
+          ],
+          site_name: process.env.APP_DOMAIN,
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
       <div className={styles.content}>
         <div className={styles.meta}>
           {article.meta.map((e) => (
@@ -86,17 +84,28 @@ const Article = ({ article, categories, mdxSource }) => {
           <h2 className={styles.subTitle}>{article.subtitle}</h2>
         )}
         <div className="wrapper">{content}</div>
-
+        {/*Hello
+        <ReactMarkdown source={article.content} />*/}
+        <p>
+          <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+        </p>
         <div className={styles.partner}>
-          {article.partner.map((e) => (
+          {article.meta.map((e) => (
             <div className={styles.partnerEntry}>
-              <PartnerLogo image={e.image} />
+              {e.image && (
+                <img src={e.image.url} alt={e.image.alternativeText} />
+              )}
             </div>
           ))}
         </div>
       </div>
       <div className={styles.articleFooter}>
-        <a href="/" className={styles.returnLink}>
+        <a
+          href={`/${
+            process.env.APP_BLOG_FOLDER ? process.env.APP_BLOG_FOLDER : ""
+          }`}
+          className={styles.returnLink}
+        >
           return to projects
         </a>
       </div>
@@ -119,6 +128,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const article = (await getArticle(params.slug)) || [];
   const categories = (await getCategories()) || [];
+
   const mdxSource = await renderToString(article.content, { components });
 
   return {
