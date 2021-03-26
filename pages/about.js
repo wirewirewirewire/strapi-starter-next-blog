@@ -38,7 +38,7 @@ const About = ({ categories }) => {
               <FontAwesomeIcon icon={faPaperPlane} size="xs" />
               Get in touch
             </a>
-            <a href="https://drive.google.com/file/d/1rJVthGoapXep7HmHM_C52fpgBjVC6M98/view" target="_blank">
+            <a href="https://drive.google.com/file/d/1e6GhqEx7Zadokpt2oLaUbCAdzW_CZnc4/view?usp=sharing" target="_blank">
               <FontAwesomeIcon icon={faFileUser} size="xs" />
               Download my CV
             </a>
