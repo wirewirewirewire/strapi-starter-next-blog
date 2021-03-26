@@ -12,7 +12,6 @@ const About = ({ categories }) => {
       <div className={styles.intro}>
         <div className={styles.introText}>
           <p>
-
             Melanie studied her BA in Industrial Design at the Burg
             Giebichenstein in Germany and Design Thinking at the HPI d.school
             before she joined the RCA Service Design program in 2019.

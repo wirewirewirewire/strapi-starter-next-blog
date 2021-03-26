@@ -28,13 +28,14 @@ const Nav = ({ categories }) => {
               <a
                 href="https://www.linkedin.com/in/melanie-gloeckler/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fab"
                   data-icon="linkedin"
-                  class={styles.linkedin}
+                  className={styles.linkedin}
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"

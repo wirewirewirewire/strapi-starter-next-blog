@@ -5,7 +5,6 @@
 }
 
 .imageContainer {
-  margin: 1em 0;
   cursor: zoom-in;
 }
 
@@ -42,6 +41,7 @@
   justify-content: center;
   > div {
     padding: 0.1em 0.5em;
+    color: #fff;
     background: rgba(#000, 0.7);
   }
   bottom: 1rem;
@@ -116,7 +116,7 @@
   position: fixed;
   width: auto;
   height: auto;
-  height: 100vh;
+  max-height: 100%;
   max-width: 100%;
   margin: auto;
 }

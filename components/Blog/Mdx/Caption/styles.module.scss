@@ -8,6 +8,12 @@
   text-align: center;
   line-height: 1.75;
   margin-bottom: 2em;
+
+  @include breakpoint($xs) {
+    max-width: calc(100% - 1em);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
 }
 .caption {
   @include caption;

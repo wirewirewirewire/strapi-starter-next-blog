@@ -1,3 +1,5 @@
+@import "global.scss";
+
 .wrapper {
   line-height: 1.7em;
   max-width: 700px;
@@ -49,12 +51,12 @@
   pre {
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
     font-size: 0.9em;
-    padding: 0.2em;
+    padding: 0.3em;
     border-radius: 0.3em;
     background-color: var(--code-01);
   }
   code {
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    margin: 0 0.2em;
   }
   pre {
     overflow: auto;
@@ -63,30 +65,5 @@
   a {
     color: var(--interactive-01);
     text-decoration: underline;
-  }
-  .videoWrapper {
-    .video {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
-    }
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .title {
-    font-size: 5rem;
-    line-height: 1em;
-    //color: $interactive-01;
-  }
-  .subTitle {
-    font-weight: 400;
-    font-size: 1.7rem;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
   }
 }

@@ -1,5 +1,7 @@
 # Strapi Starter Next Blog
 
+How to get started blog post: https://wirewire.de/article/cheapest-website-strapi-nextjs-cloudinary
+
 Next starter for creating a blog with Strapi.
 
 This starter allows you to try Strapi with Next with the example of a simple blog. It is fully customizable and due to the fact that it is open source, fully open to contributions. Do not hesitate to add new features etc ...
@@ -29,19 +31,19 @@ Coming soon...
 
 **On Vercel**
 
-  - Log in to Vercel by installing now CLI:
+- Log in to Vercel by installing now CLI:
 
-  `npm i -g now`
+`npm i -g now`
 
-  - Secure your `API_URL` with now by running the following command:
+- Secure your `API_URL` with now by running the following command:
 
-  `now secret add api-url <https://your-strapi-instance.herokuapp.com>`
+`now secret add api-url <https://your-strapi-instance.herokuapp.com>`
 
 You can deploy your app and for this you have two options. But for each one of them, just press enter when the root directory of your code is asked.
 
-  - Execute `now`
+- Execute `now`
 
-  - Or you can simply click on the following button
+- Or you can simply click on the following button
 
 [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/strapi/strapi-starter-next-blog)
 
