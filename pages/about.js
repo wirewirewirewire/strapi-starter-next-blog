@@ -23,9 +23,9 @@ const About = ({ categories }) => {
             since shaped the human environment and humanity itself, her work
             sought to explore different intersections, pushed boundaries and
             tried to rethink current approaches or create multiple futures with
-            and through means of technological use. Her latest project FIAAI
-            takes a different perspective and designs in the realm of policy for
-            technology.{" "}
+            and through means of technological use.
+            
+            {" "}
             {/*On a professional level, she got the chance to intern in
             automobility for BMW and worked in design education before
             transitioning with a DAAD scholarship to the RCA in London. Her work
@@ -37,7 +37,7 @@ const About = ({ categories }) => {
               <FontAwesomeIcon icon={faPaperPlane} size="xs" />
               Get in touch
             </a>
-            <a href="https://drive.google.com/file/d/1e6GhqEx7Zadokpt2oLaUbCAdzW_CZnc4/view?usp=sharing" target="_blank">
+            <a href="https://drive.google.com/file/d/1NeHOehlGF6FDXUnpvB9a0P26EFJCY1M2/view?usp=sharing" target="_blank">
               <FontAwesomeIcon icon={faFileUser} size="xs" />
               Download my CV
             </a>
