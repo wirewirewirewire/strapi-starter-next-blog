@@ -48,6 +48,8 @@ const About = ({ categories }) => {
         </div>
       </div>
       {/*<div className={stylesArticle.content}> */}
+
+      {/*
       <h3 className={styles.container}>Education</h3>
       <table className={styles.timelineTable}>
         <tr>
@@ -221,7 +223,9 @@ const About = ({ categories }) => {
       </table>
     </Layout>
   );
-};
+};  
+
+*/}
 
 export async function getStaticProps() {
   const categories = (await getCategories()) || [];
